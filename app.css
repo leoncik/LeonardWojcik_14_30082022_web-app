@@ -1,14 +1,9 @@
-/* Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Initial CSS */
 .title {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .container {
     display: flex;

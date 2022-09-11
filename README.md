@@ -1,3 +1,3 @@
-# Wealth Health - HRnet
+# HRnet
 
-Project carried out as part of the Front-End Web Development Career Path of OpenClassrooms.
+This is the original code that was converted into a React app.
