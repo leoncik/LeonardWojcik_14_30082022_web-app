@@ -1,37 +1,65 @@
+// React Hooks
+import { useState, useRef } from 'react';
+
 // Libraries
 // Final version. Not currently working
 // import { SelectMenu } from '@leoncik/p14-plugin-test';
 // Test version. Working.
-import { SelectMenu } from '@leoncik/p14-plugin-test';
+import { SelectMenu } from '@leoncik/p14-hrnet-plugin';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Calendar } from 'primereact/calendar';
+import { Fieldset } from 'primereact/fieldset';
+import { InputNumber } from 'primereact/inputnumber';
 
 function EmployeeForm() {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    const firstName: any = useRef();
+    const lastName: any = useRef();
+    const birthDate: any = useRef();
+    const startDate: any = useRef();
+    const street: any = useRef();
+    const city: any = useRef();
+    // const state: any = useRef();
+    const zipCode: any = useRef();
+    // const department: any = useRef();
+    /* eslint-enable @typescript-eslint/no-explicit-any */
+
+    const [isDialogVisible, setIsDialogVisible] = useState(false);
+
     const handleSaveEmployee = () => {
         console.log('Employee saved.');
+        console.log(`First name :${firstName.current.value}`);
+        console.log(`Last name :${lastName.current.value}`);
+        console.log(`Birth date :${birthDate.current.getInput().value}`);
+        console.log(`Start date :${startDate.current.getInput().value}`);
+        console.log(`Street :${street.current.value}`);
+        console.log(`City :${city.current.value}`);
+        console.log(`Zip code :${zipCode.current.getInput().value}`);
     };
 
     return (
-        <div className="form-container flex flex-col items-center justify-center bg-green-600">
-            <form className="mb-3">
-                <label htmlFor="first-name">First Name</label>
-                <input type="text" id="first-name" />
+        <div className="form-container flex flex-col items-center pb-4 justify-center bg-green-600">
+            <form className="mb-3 mt-3 bg-white p-5 rounded-md">
+                <label htmlFor="firstName">First Name</label>
+                <InputText ref={firstName} id="firstName"></InputText>
 
-                <label htmlFor="last-name">Last Name</label>
-                <input type="text" id="last-name" />
+                <label htmlFor="lastName">Last Name</label>
+                <InputText id="lastName" ref={lastName}></InputText>
 
                 <label htmlFor="date-of-birth">Date of Birth</label>
-                <input id="date-of-birth" type="text" />
+                <Calendar id="date-of-birth" ref={birthDate}></Calendar>
 
                 <label htmlFor="start-date">Start Date</label>
-                <input id="start-date" type="text" />
+                <Calendar id="start-date" ref={startDate}></Calendar>
 
-                <fieldset className="address">
-                    <legend>Address</legend>
-
+                <Fieldset className="mt-5" legend="Address">
                     <label htmlFor="street">Street</label>
-                    <input id="street" type="text" />
+                    <InputText id="street" ref={street}></InputText>
 
                     <label htmlFor="city">City</label>
-                    <input id="city" type="text" />
+                    <InputText id="city" ref={city}></InputText>
 
                     <label htmlFor="state">State</label>
                     <SelectMenu
@@ -44,24 +72,28 @@ function EmployeeForm() {
                     />
 
                     <label htmlFor="zip-code">Zip Code</label>
-                    <input id="zip-code" type="number" />
-                </fieldset>
+                    <InputNumber inputId="zip-code" ref={zipCode} />
+                </Fieldset>
 
                 <label htmlFor="department">Department</label>
-                <select name="department" id="department">
-                    <option>Sales</option>
-                    <option>Marketing</option>
-                    <option>Engineering</option>
-                    <option>Human Resources</option>
-                    <option>Legal</option>
-                </select>
+                <SelectMenu
+                    options={['First option', 'Second option', 'Last option']}
+                    label="Sales"
+                />
             </form>
-            <button
-                className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                onClick={handleSaveEmployee}
+            <Dialog
+                visible={isDialogVisible}
+                onHide={() => setIsDialogVisible(false)}
             >
-                Save
-            </button>
+                Employee Created!
+            </Dialog>
+            <Button
+                label="Save"
+                onClick={() => {
+                    setIsDialogVisible(true);
+                    handleSaveEmployee();
+                }}
+            />
         </div>
     );
 }
