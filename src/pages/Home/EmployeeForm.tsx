@@ -21,9 +21,9 @@ function EmployeeForm() {
     const startDate: any = useRef();
     const street: any = useRef();
     const city: any = useRef();
-    // const state: any = useRef();
+    const state: any = useRef();
     const zipCode: any = useRef();
-    // const department: any = useRef();
+    const department: any = useRef();
     /* eslint-enable @typescript-eslint/no-explicit-any */
 
     const [isDialogVisible, setIsDialogVisible] = useState(false);
@@ -36,7 +36,9 @@ function EmployeeForm() {
         console.log(`Start date :${startDate.current.getInput().value}`);
         console.log(`Street :${street.current.value}`);
         console.log(`City :${city.current.value}`);
+        console.log(`State :${state.current.value}`);
         console.log(`Zip code :${zipCode.current.getInput().value}`);
+        console.log(`Department :${department.current.value}`);
     };
 
     return (
@@ -63,12 +65,10 @@ function EmployeeForm() {
 
                     <label htmlFor="state">State</label>
                     <SelectMenu
-                        options={[
-                            'First option',
-                            'Second option',
-                            'Last option',
-                        ]}
+                        options={['Alaska', 'Second option', 'Last option']}
                         label="Alaska"
+                        id={'state'}
+                        optionRef={state}
                     />
 
                     <label htmlFor="zip-code">Zip Code</label>
@@ -77,8 +77,10 @@ function EmployeeForm() {
 
                 <label htmlFor="department">Department</label>
                 <SelectMenu
-                    options={['First option', 'Second option', 'Last option']}
+                    options={['Sales', 'Second option', 'Last option']}
                     label="Sales"
+                    id={'department'}
+                    optionRef={department}
                 />
             </form>
             <Dialog
