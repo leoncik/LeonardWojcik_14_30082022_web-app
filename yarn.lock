@@ -343,10 +343,10 @@
   resolved "https://npm.pkg.github.com/download/@leoncik/p14-hrnet-plugin/0.0.5/94938215bac5821a741feec9184fde631ffa1098#94938215bac5821a741feec9184fde631ffa1098"
   integrity sha512-89dGontK4Xb98CBW3PqEVKLOUqjvc+dOr+fH/4iKtKdvqsTLb/RLeyaoMQuMYuNEHKumY+p7YpxRvkoCNguDKw==
 
-"@leoncik/p14-plugin-test@0.0.11":
-  version "0.0.11"
-  resolved "https://npm.pkg.github.com/download/@leoncik/p14-plugin-test/0.0.11/dd946d7122307d7964541b6d40a205697ae6e496#dd946d7122307d7964541b6d40a205697ae6e496"
-  integrity sha512-qDZA/NQYoR5TjCrUqIi1Bbw8VEOOM+svvWimWM3Z0j/Zd1DTYz5txbfw3g7o2ELRXpJ+CkPZjHL1LZvpaM+N8A==
+"@leoncik/p14-plugin-test@0.0.14":
+  version "0.0.14"
+  resolved "https://npm.pkg.github.com/download/@leoncik/p14-plugin-test/0.0.14/cc376b37894927cf0a762f5f963e4032e9a0dc7e#cc376b37894927cf0a762f5f963e4032e9a0dc7e"
+  integrity sha512-S8S4rhCqpEk8UqDLhL153P3qUnmDYAjpS5xgiU8CghRVlPfdHubxxOqsS2plG5YEVOqXkToZzf5KCpzFSvrqwQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

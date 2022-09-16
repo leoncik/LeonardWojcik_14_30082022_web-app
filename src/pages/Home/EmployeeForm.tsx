@@ -2,10 +2,10 @@
 import { useState, useRef } from 'react';
 
 // Libraries
-// Final version. Not currently working
-// import { SelectMenu } from '@leoncik/p14-plugin-test';
-// Test version. Working.
-import { SelectMenu } from '@leoncik/p14-hrnet-plugin';
+// Final version.
+import { SelectMenu } from '@leoncik/p14-plugin-test';
+// Test version.
+// import { SelectMenu } from '@leoncik/p14-hrnet-plugin';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -17,7 +17,7 @@ function EmployeeForm() {
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const firstName: any = useRef();
     const lastName: any = useRef();
-    const birthDate: any = useRef();
+    const dateOfBirth: any = useRef();
     const startDate: any = useRef();
     const street: any = useRef();
     const city: any = useRef();
@@ -32,7 +32,7 @@ function EmployeeForm() {
         console.log('Employee saved.');
         console.log(`First name :${firstName.current.value}`);
         console.log(`Last name :${lastName.current.value}`);
-        console.log(`Birth date :${birthDate.current.getInput().value}`);
+        console.log(`Birth date :${dateOfBirth.current.getInput().value}`);
         console.log(`Start date :${startDate.current.getInput().value}`);
         console.log(`Street :${street.current.value}`);
         console.log(`City :${city.current.value}`);
@@ -51,7 +51,7 @@ function EmployeeForm() {
                 <InputText id="lastName" ref={lastName}></InputText>
 
                 <label htmlFor="date-of-birth">Date of Birth</label>
-                <Calendar id="date-of-birth" ref={birthDate}></Calendar>
+                <Calendar id="date-of-birth" ref={dateOfBirth}></Calendar>
 
                 <label htmlFor="start-date">Start Date</label>
                 <Calendar id="start-date" ref={startDate}></Calendar>
@@ -68,7 +68,7 @@ function EmployeeForm() {
                         options={['Alaska', 'Second option', 'Last option']}
                         label="Alaska"
                         id={'state'}
-                        optionRef={state}
+                        inputRef={state}
                     />
 
                     <label htmlFor="zip-code">Zip Code</label>
@@ -80,7 +80,7 @@ function EmployeeForm() {
                     options={['Sales', 'Second option', 'Last option']}
                     label="Sales"
                     id={'department'}
-                    optionRef={department}
+                    inputRef={department}
                 />
             </form>
             <Dialog
