@@ -338,15 +338,15 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@leoncik/p14-hrnet-plugin@0.0.5":
-  version "0.0.5"
-  resolved "https://npm.pkg.github.com/download/@leoncik/p14-hrnet-plugin/0.0.5/94938215bac5821a741feec9184fde631ffa1098#94938215bac5821a741feec9184fde631ffa1098"
-  integrity sha512-89dGontK4Xb98CBW3PqEVKLOUqjvc+dOr+fH/4iKtKdvqsTLb/RLeyaoMQuMYuNEHKumY+p7YpxRvkoCNguDKw==
+"@leoncik/p14-hrnet-plugin@0.0.6":
+  version "0.0.6"
+  resolved "https://npm.pkg.github.com/download/@leoncik/p14-hrnet-plugin/0.0.6/ed9a98b600b50213eb3c3829c5c15fc6c25f0fb6#ed9a98b600b50213eb3c3829c5c15fc6c25f0fb6"
+  integrity sha512-HaIAd5tqdnAah4eMyh1HW3ECDOdCYNulSsHUaDO+6fjXQkeXMFcKz1swR9SHvQ0HIyyFDmFBG1gYhRSy3tAOqw==
 
-"@leoncik/p14-plugin-test@0.0.14":
-  version "0.0.14"
-  resolved "https://npm.pkg.github.com/download/@leoncik/p14-plugin-test/0.0.14/cc376b37894927cf0a762f5f963e4032e9a0dc7e#cc376b37894927cf0a762f5f963e4032e9a0dc7e"
-  integrity sha512-S8S4rhCqpEk8UqDLhL153P3qUnmDYAjpS5xgiU8CghRVlPfdHubxxOqsS2plG5YEVOqXkToZzf5KCpzFSvrqwQ==
+"@leoncik/p14-plugin-test@0.0.16":
+  version "0.0.16"
+  resolved "https://npm.pkg.github.com/download/@leoncik/p14-plugin-test/0.0.16/4e8c28d8afddf8eb6c031798855623d55038b998#4e8c28d8afddf8eb6c031798855623d55038b998"
+  integrity sha512-0GAenQoRhVlYnQX+0UpWuzbc4yeBBbEcNojhW5htYDYwp6O686eNq0J/3hqZYRWgW7bCuzweaqNV6uSKlne2Lg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
