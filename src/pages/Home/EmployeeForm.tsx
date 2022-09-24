@@ -46,26 +46,13 @@ function EmployeeForm() {
     };
 
     const handleSaveEmployee = () => {
-        console.log('Employee saved.');
-        console.log(`First name : ${firstName.current.value}`);
-        console.log(`Last name : ${lastName.current.value}`);
-        console.log(`Birth date : ${dateOfBirth.current.getInput().value}`);
-        console.log(`Start date : ${startDate.current.getInput().value}`);
-        console.log(`Street : ${street.current.value}`);
-        console.log(`City : ${city.current.value}`);
-        console.log(`State : ${state.current.textContent}`);
-        console.log(`State value : ${state.current.value}`);
-        console.log(state.current);
-        console.log(`Zip code : ${zipCode.current.getInput().value}`);
-        console.log(`Department : ${department.current.value}`);
-
         const employees =
             JSON.parse(localStorage.getItem('employees') || '[]') || [];
         const employee = {
             firstName: firstName.current.value,
             lastName: lastName.current.value,
-            dateOfBirth: dateOfBirth.current.value,
-            startDate: startDate.current.value,
+            dateOfBirth: dateOfBirth.current.getInput().value,
+            startDate: startDate.current.getInput().value,
             street: street.current.value,
             city: city.current.value,
             state: state.current.value,
@@ -124,11 +111,13 @@ function EmployeeForm() {
                 Employee Created!
             </Dialog>
             <Button
+                className="p-button-raised p-button-success"
                 label="Save"
                 onClick={() => {
                     setIsDialogVisible(true);
                     handleSaveEmployee();
                 }}
+                style={{ background: 'white', color: 'rgb(34 197 94)' }}
             />
         </div>
     );

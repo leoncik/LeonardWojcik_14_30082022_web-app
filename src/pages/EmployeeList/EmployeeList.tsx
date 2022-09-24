@@ -1,19 +1,19 @@
 // React Hooks
 import { useState } from 'react';
 
-// Routing
-import { Link } from 'react-router-dom';
-
 // Libraries
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
 
 // Mocked data
 import { mockedEmployees } from '../../__mocks__/mockedEmployees';
 
 function EmployeeList() {
+    // TABLE
     const savedEmployees =
         JSON.parse(localStorage.getItem('employees') || '[]') || [];
     const employees = [...savedEmployees, ...mockedEmployees];
@@ -33,6 +33,13 @@ function EmployeeList() {
         setGlobalFilterValue(value);
     };
     /* eslint-enable @typescript-eslint/no-explicit-any */
+
+    // MODAL AND LOCALSTORAGE CLEAR
+    const [isDialogVisible, setIsDialogVisible] = useState(false);
+    const handleDeleteEmployees = () => {
+        localStorage.clear();
+        console.log('all clear !');
+    };
 
     const renderHeader = () => {
         return (
@@ -99,10 +106,40 @@ function EmployeeList() {
                     sortable={true}
                 ></Column>
             </DataTable>
-            <table id="employee-table" className="display"></table>
-            <Link className="font-bold" to="/">
-                Home
-            </Link>
+
+            <Button
+                className="p-button-danger"
+                style={{ marginTop: '23px' }}
+                label="DELETE SAVED EMPLOYEES"
+                onClick={() => {
+                    setIsDialogVisible(true);
+                }}
+            />
+            <Dialog
+                visible={isDialogVisible}
+                onHide={() => setIsDialogVisible(false)}
+            >
+                <div>
+                    <p>Are you sure? This will delete all created employees.</p>
+                    <div className="mt-4 gap-4 flex items-center justify-center">
+                        <Button
+                            className="p-button-danger"
+                            label="DELETE EMPLOYEES"
+                            onClick={() => {
+                                setIsDialogVisible(false);
+                                handleDeleteEmployees();
+                            }}
+                        />
+                        <Button
+                            className="p-button-secondary"
+                            label="CANCEL"
+                            onClick={() => {
+                                setIsDialogVisible(false);
+                            }}
+                        />
+                    </div>
+                </div>
+            </Dialog>
         </div>
     );
 }
