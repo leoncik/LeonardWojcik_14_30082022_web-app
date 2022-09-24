@@ -9,19 +9,25 @@ import { FilterMatchMode } from 'primereact/api';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 
+// Interfaces
+import { IEmployees } from '../../__mocks__/mockedEmployees';
+
 // Mocked data
-import { mockedEmployees } from '../../__mocks__/mockedEmployees';
+// import { mockedEmployees } from '../../__mocks__/mockedEmployees';
 
 function EmployeeList() {
     // TABLE
     const savedEmployees =
         JSON.parse(localStorage.getItem('employees') || '[]') || [];
-    const employees = [...savedEmployees, ...mockedEmployees];
+    // const employees = [...savedEmployees, ...mockedEmployees];
+    const employees = savedEmployees;
 
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
     const [globalFilterValue, setGlobalFilterValue] = useState('');
+    const [selectedEmployees, setSelectedEmployees] = useState(null);
+    const [isDeleteButtonActive, setIsDeleteButtonActive] = useState(false);
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const onGlobalFilterChange = (e: any) => {
@@ -34,11 +40,18 @@ function EmployeeList() {
     };
     /* eslint-enable @typescript-eslint/no-explicit-any */
 
-    // MODAL AND LOCALSTORAGE CLEAR
+    // DELETING EMPLOYEE
     const [isDialogVisible, setIsDialogVisible] = useState(false);
     const handleDeleteEmployees = () => {
-        localStorage.clear();
-        console.log('all clear !');
+        employees.map((employee: IEmployees, index: number) => {
+            selectedEmployees?.map((selectedEmployee) => {
+                console.log(selectedEmployee, employee);
+                if (selectedEmployee.id === employee.id) {
+                    employees.splice(index, 1);
+                }
+            });
+            localStorage.setItem('employees', JSON.stringify(employees));
+        });
     };
 
     const renderHeader = () => {
@@ -71,7 +84,20 @@ function EmployeeList() {
                 rows={5}
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                 filters={filters}
+                selection={selectedEmployees}
+                onSelectionChange={(e) => {
+                    setSelectedEmployees(e.value);
+                    console.log(selectedEmployees);
+                    selectedEmployees
+                        ? setIsDeleteButtonActive(true)
+                        : setIsDeleteButtonActive(false);
+                }}
+                responsiveLayout="scroll"
             >
+                <Column
+                    selectionMode="multiple"
+                    headerStyle={{ width: '3em' }}
+                ></Column>
                 <Column
                     field="firstName"
                     header="First Name"
@@ -109,8 +135,11 @@ function EmployeeList() {
 
             <Button
                 className="p-button-danger"
-                style={{ marginTop: '23px' }}
-                label="DELETE SAVED EMPLOYEES"
+                style={{
+                    marginTop: '23px',
+                    opacity: isDeleteButtonActive ? '1' : '0.5',
+                }}
+                label="DELETE SELECTED EMPLOYEES"
                 onClick={() => {
                     setIsDialogVisible(true);
                 }}
@@ -120,7 +149,10 @@ function EmployeeList() {
                 onHide={() => setIsDialogVisible(false)}
             >
                 <div>
-                    <p>Are you sure? This will delete all created employees.</p>
+                    <p>
+                        Are you sure? This will delete all the selected
+                        employees.
+                    </p>
                     <div className="mt-4 gap-4 flex items-center justify-center">
                         <Button
                             className="p-button-danger"

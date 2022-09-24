@@ -1,4 +1,5 @@
 export interface IEmployees {
+    id: number;
     firstName: string;
     lastName: string;
     startDate: string;
@@ -12,6 +13,7 @@ export interface IEmployees {
 
 export const mockedEmployees: Array<IEmployees> = [
     {
+        id: 1464027914332,
         firstName: 'Herlock',
         lastName: 'Sholmes',
         startDate: '09/13/2022',
@@ -23,6 +25,7 @@ export const mockedEmployees: Array<IEmployees> = [
         zipCode: 88000,
     },
     {
+        id: 1364027914332,
         firstName: 'Bond',
         lastName: 'James',
         startDate: '09/14/2022',

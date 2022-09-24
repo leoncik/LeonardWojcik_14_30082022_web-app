@@ -49,6 +49,7 @@ function EmployeeForm() {
         const employees =
             JSON.parse(localStorage.getItem('employees') || '[]') || [];
         const employee = {
+            id: Date.now(),
             firstName: firstName.current.value,
             lastName: lastName.current.value,
             dateOfBirth: dateOfBirth.current.getInput().value,
