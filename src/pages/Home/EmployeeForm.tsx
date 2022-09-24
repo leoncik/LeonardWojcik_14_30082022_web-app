@@ -60,7 +60,7 @@ function EmployeeForm() {
         console.log(`Department : ${department.current.value}`);
 
         const employees =
-            JSON.parse(localStorage.getItem('employees') || '') || [];
+            JSON.parse(localStorage.getItem('employees') || '[]') || [];
         const employee = {
             firstName: firstName.current.value,
             lastName: lastName.current.value,

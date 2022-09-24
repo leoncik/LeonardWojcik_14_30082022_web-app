@@ -11,10 +11,12 @@ import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 
 // Mocked data
-// import { mockedEmployees } from '../../__mocks__/mockedEmployees';
+import { mockedEmployees } from '../../__mocks__/mockedEmployees';
 
 function EmployeeList() {
-    const employees = JSON.parse(localStorage.getItem('employees') || '');
+    const savedEmployees =
+        JSON.parse(localStorage.getItem('employees') || '[]') || [];
+    const employees = [...savedEmployees, ...mockedEmployees];
 
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
