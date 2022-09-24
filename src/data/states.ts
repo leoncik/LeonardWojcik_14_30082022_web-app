@@ -1,4 +1,9 @@
-export const states = [
+export interface IStates {
+    name: string;
+    abbreviation: string;
+}
+
+export const states: Array<IStates> = [
     {
         name: 'Alabama',
         abbreviation: 'AL',

@@ -2,10 +2,9 @@
 import { useState, useRef } from 'react';
 
 // Libraries
-// Final version.
-import { SelectMenu } from '@leoncik/p14-plugin-test';
-// Test version.
-// import { SelectMenu } from '@leoncik/p14-hrnet-plugin';
+// Personal library
+import { SelectMenu } from '@leoncik/p14-hrnet-plugin';
+// PrimeReact
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -16,6 +15,9 @@ import { InputNumber } from 'primereact/inputnumber';
 // Data
 import { states } from '../../data/states';
 import { departments } from '../../data/departments';
+
+// Interfaces
+import { IStates } from '../../data/states';
 
 function EmployeeForm() {
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -32,25 +34,46 @@ function EmployeeForm() {
 
     const [isDialogVisible, setIsDialogVisible] = useState(false);
 
-    const getStateNames = (
-        statesList: Array<{ name: string; abbreviation: string }>
-    ) => {
+    const getStateNames = (statesList: Array<IStates>) => {
         const statesNames: Array<string> = [];
         statesList.map((state) => statesNames.push(state.name));
         return statesNames;
     };
+    const getStatesAbbreviations = (statesList: Array<IStates>) => {
+        const statesAbbreviations: Array<string> = [];
+        statesList.map((state) => statesAbbreviations.push(state.abbreviation));
+        return statesAbbreviations;
+    };
 
     const handleSaveEmployee = () => {
         console.log('Employee saved.');
-        console.log(`First name :${firstName.current.value}`);
-        console.log(`Last name :${lastName.current.value}`);
-        console.log(`Birth date :${dateOfBirth.current.getInput().value}`);
-        console.log(`Start date :${startDate.current.getInput().value}`);
-        console.log(`Street :${street.current.value}`);
-        console.log(`City :${city.current.value}`);
-        console.log(`State :${state.current.value}`);
-        console.log(`Zip code :${zipCode.current.getInput().value}`);
-        console.log(`Department :${department.current.value}`);
+        console.log(`First name : ${firstName.current.value}`);
+        console.log(`Last name : ${lastName.current.value}`);
+        console.log(`Birth date : ${dateOfBirth.current.getInput().value}`);
+        console.log(`Start date : ${startDate.current.getInput().value}`);
+        console.log(`Street : ${street.current.value}`);
+        console.log(`City : ${city.current.value}`);
+        console.log(`State : ${state.current.textContent}`);
+        console.log(`State value : ${state.current.value}`);
+        console.log(state.current);
+        console.log(`Zip code : ${zipCode.current.getInput().value}`);
+        console.log(`Department : ${department.current.value}`);
+
+        const employees =
+            JSON.parse(localStorage.getItem('employees') || '') || [];
+        const employee = {
+            firstName: firstName.current.value,
+            lastName: lastName.current.value,
+            dateOfBirth: dateOfBirth.current.value,
+            startDate: startDate.current.value,
+            street: street.current.value,
+            city: city.current.value,
+            state: state.current.value,
+            zipCode: zipCode.current.getInput().value,
+            department: department.current.value,
+        };
+        employees.push(employee);
+        localStorage.setItem('employees', JSON.stringify(employees));
     };
 
     return (
@@ -78,7 +101,7 @@ function EmployeeForm() {
                     <label htmlFor="state">State</label>
                     <SelectMenu
                         options={getStateNames(states)}
-                        label="Alaska"
+                        optionsValues={getStatesAbbreviations(states)}
                         id={'state'}
                         inputRef={state}
                     />
@@ -90,7 +113,6 @@ function EmployeeForm() {
                 <label htmlFor="department">Department</label>
                 <SelectMenu
                     options={departments}
-                    label="Sales"
                     id={'department'}
                     inputRef={department}
                 />

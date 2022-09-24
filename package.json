@@ -10,8 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@leoncik/p14-hrnet-plugin": "0.0.6",
-    "@leoncik/p14-plugin-test": "0.0.16",
+    "@leoncik/p14-hrnet-plugin": "0.0.7",
     "primeicons": "^5.0.0",
     "primereact": "^8.5.0",
     "react": "^18.2.0",
