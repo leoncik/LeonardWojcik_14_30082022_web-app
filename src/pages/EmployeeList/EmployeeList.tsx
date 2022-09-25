@@ -26,7 +26,8 @@ function EmployeeList() {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     });
     const [globalFilterValue, setGlobalFilterValue] = useState('');
-    const [selectedEmployees, setSelectedEmployees] = useState(null);
+    const [selectedEmployees, setSelectedEmployees] =
+        useState<Array<IEmployees> | null>(null);
     const [isDeleteButtonActive, setIsDeleteButtonActive] = useState(false);
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -43,9 +44,8 @@ function EmployeeList() {
     // DELETING EMPLOYEE
     const [isDialogVisible, setIsDialogVisible] = useState(false);
     const handleDeleteEmployees = () => {
-        employees.map((employee: IEmployees, index: number) => {
-            selectedEmployees?.map((selectedEmployee) => {
-                console.log(selectedEmployee, employee);
+        selectedEmployees?.map((selectedEmployee: IEmployees) => {
+            employees?.map((employee: IEmployees, index: number) => {
                 if (selectedEmployee.id === employee.id) {
                     employees.splice(index, 1);
                 }
