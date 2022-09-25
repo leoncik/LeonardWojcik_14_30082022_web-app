@@ -1,5 +1,5 @@
 // React Hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Libraries
 import { DataTable } from 'primereact/datatable';
@@ -51,8 +51,16 @@ function EmployeeList() {
                 }
             });
             localStorage.setItem('employees', JSON.stringify(employees));
+            // Reset selection in order to set delete button style to disabled.
+            setSelectedEmployees([]);
         });
     };
+
+    useEffect(() => {
+        selectedEmployees !== null && selectedEmployees.length > 0
+            ? setIsDeleteButtonActive(true)
+            : setIsDeleteButtonActive(false);
+    }, [selectedEmployees]);
 
     const renderHeader = () => {
         return (
@@ -85,13 +93,7 @@ function EmployeeList() {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                 filters={filters}
                 selection={selectedEmployees}
-                onSelectionChange={(e) => {
-                    setSelectedEmployees(e.value);
-                    console.log(selectedEmployees);
-                    selectedEmployees
-                        ? setIsDeleteButtonActive(true)
-                        : setIsDeleteButtonActive(false);
-                }}
+                onSelectionChange={(e) => setSelectedEmployees(e.value)}
                 responsiveLayout="scroll"
             >
                 <Column
@@ -138,6 +140,7 @@ function EmployeeList() {
                 style={{
                     marginTop: '23px',
                     opacity: isDeleteButtonActive ? '1' : '0.5',
+                    pointerEvents: isDeleteButtonActive ? 'auto' : 'none',
                 }}
                 label="DELETE SELECTED EMPLOYEES"
                 onClick={() => {
