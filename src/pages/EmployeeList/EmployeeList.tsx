@@ -1,5 +1,5 @@
 // React Hooks
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Libraries
 import { DataTable } from 'primereact/datatable';
@@ -8,6 +8,7 @@ import { InputText } from 'primereact/inputtext';
 import { FilterMatchMode } from 'primereact/api';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import { Toast } from 'primereact/toast';
 
 // Interfaces
 import { IEmployees } from '../../__mocks__/mockedEmployees';
@@ -51,6 +52,14 @@ function EmployeeList() {
                 }
             });
             localStorage.setItem('employees', JSON.stringify(employees));
+            toast?.current?.show({
+                severity: 'success',
+                summary:
+                    selectedEmployees.length === 1
+                        ? 'Selected employee deleted.'
+                        : 'Selected employees deleted.',
+                life: 4000,
+            });
             // Reset selection in order to set delete button style to disabled.
             setSelectedEmployees([]);
         });
@@ -78,12 +87,15 @@ function EmployeeList() {
         );
     };
     const header = renderHeader();
+    const toast = useRef<Toast>(null);
 
     return (
         <div
             id="employee-div"
             className="flex flex-col items-center justify-center bg-green-600 h-screen"
         >
+            <Toast ref={toast} position="bottom-right" />
+
             <DataTable
                 value={employees}
                 header={header}
@@ -142,7 +154,11 @@ function EmployeeList() {
                     opacity: isDeleteButtonActive ? '1' : '0.5',
                     pointerEvents: isDeleteButtonActive ? 'auto' : 'none',
                 }}
-                label="DELETE SELECTED EMPLOYEES"
+                label={
+                    selectedEmployees !== null && selectedEmployees.length > 1
+                        ? 'DELETE SELECTED EMPLOYEES'
+                        : 'DELETE SELECTED EMPLOYEE'
+                }
                 onClick={() => {
                     setIsDialogVisible(true);
                 }}
@@ -153,13 +169,20 @@ function EmployeeList() {
             >
                 <div>
                     <p>
-                        Are you sure? This will delete all the selected
-                        employees.
+                        {selectedEmployees !== null &&
+                        selectedEmployees.length > 1
+                            ? 'Are you sure? This will delete all the selected employees.'
+                            : 'Are you sure? This will delete the selected employee.'}
                     </p>
                     <div className="mt-4 gap-4 flex items-center justify-center">
                         <Button
                             className="p-button-danger"
-                            label="DELETE EMPLOYEES"
+                            label={
+                                selectedEmployees !== null &&
+                                selectedEmployees.length > 1
+                                    ? 'DELETE EMPLOYEES'
+                                    : 'DELETE EMPLOYEE'
+                            }
                             onClick={() => {
                                 setIsDialogVisible(false);
                                 handleDeleteEmployees();
