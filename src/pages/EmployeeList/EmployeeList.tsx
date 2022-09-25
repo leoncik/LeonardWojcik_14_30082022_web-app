@@ -9,6 +9,7 @@ import { FilterMatchMode } from 'primereact/api';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { Toast } from 'primereact/toast';
+import { Dropdown } from 'primereact/dropdown';
 
 // Interfaces
 import { IEmployees } from '../../__mocks__/mockedEmployees';
@@ -39,6 +40,62 @@ function EmployeeList() {
 
         setFilters(_filters);
         setGlobalFilterValue(value);
+    };
+    // Navigation template
+    const navigationTemplate: any = {
+        layout: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
+        RowsPerPageDropdown: (options: any) => {
+            const dropdownOptions = [
+                { label: 5, value: 5 },
+                { label: 10, value: 10 },
+                { label: 25, value: 25 },
+                { label: 50, value: 50 },
+                { label: 100, value: 100 },
+            ];
+
+            return (
+                <>
+                    <span
+                        className="mx-1"
+                        style={{
+                            color: 'var(--text-color)',
+                            userSelect: 'none',
+                        }}
+                    >
+                        Show
+                    </span>
+                    <Dropdown
+                        value={options.value}
+                        options={dropdownOptions}
+                        onChange={options.onChange}
+                    />
+                    <span
+                        className="mx-2"
+                        style={{
+                            color: 'var(--text-color)',
+                            userSelect: 'none',
+                        }}
+                    >
+                        entries
+                    </span>
+                </>
+            );
+        },
+        CurrentPageReport: (options: any) => {
+            return (
+                <span
+                    className="mr-auto"
+                    style={{
+                        color: 'var(--text-color)',
+                        userSelect: 'none',
+                        width: '120px',
+                        textAlign: 'center',
+                    }}
+                >
+                    {options.first} - {options.last} of {options.totalRecords}
+                </span>
+            );
+        },
     };
     /* eslint-enable @typescript-eslint/no-explicit-any */
 
@@ -102,11 +159,13 @@ function EmployeeList() {
                 emptyMessage="No employee found."
                 paginator
                 rows={5}
-                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                rowsPerPageOptions={[5, 10, 25, 50, 100]}
+                paginatorTemplate={navigationTemplate}
                 filters={filters}
                 selection={selectedEmployees}
                 onSelectionChange={(e) => setSelectedEmployees(e.value)}
                 responsiveLayout="scroll"
+                style={{ width: '90%' }}
             >
                 <Column
                     selectionMode="multiple"
@@ -165,6 +224,7 @@ function EmployeeList() {
             />
             <Dialog
                 visible={isDialogVisible}
+                draggable={false}
                 onHide={() => setIsDialogVisible(false)}
             >
                 <div>
