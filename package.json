@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "dependencies": {
     "@leoncik/p14-hrnet-plugin": "0.0.7",
@@ -18,6 +19,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -28,12 +30,14 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.4",
     "husky": "^8.0.1",
+    "jsdom": "^20.0.0",
     "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.6.4",
-    "vite": "^3.0.7"
+    "vite": "^3.0.7",
+    "vitest": "^0.23.4"
   },
   "lint-staged": {
     "*.{tsx,ts}": "eslint --cache --fix",
