@@ -109,6 +109,7 @@ function EmployeeForm() {
 
                         <label htmlFor="state">State</label>
                         <SelectMenu
+                            mainColor="rgb(34 197 94)"
                             options={getStateNames(states)}
                             optionsValues={getStatesAbbreviations(states)}
                             id={'state'}
@@ -121,6 +122,7 @@ function EmployeeForm() {
 
                     <label htmlFor="department">Department</label>
                     <SelectMenu
+                        mainColor="rgb(34 197 94)"
                         options={departments}
                         id={'department'}
                         inputRef={department}
