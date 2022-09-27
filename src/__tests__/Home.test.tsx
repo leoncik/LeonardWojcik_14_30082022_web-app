@@ -8,7 +8,7 @@ describe('Testing render of home page', () => {
         const firstNameLabel = screen.getByText('First Name');
         const lastNameLabel = screen.getByText('Last Name');
         const dateOfBirthLabel = screen.getByText('Date of Birth');
-        const saveButton = screen.getByText('Save');
+        const saveButton = screen.getByText('SAVE EMPLOYEE');
         expect(firstNameLabel).toBeDefined;
         expect(lastNameLabel).toBeDefined;
         expect(dateOfBirthLabel).toBeDefined;
