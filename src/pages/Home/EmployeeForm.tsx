@@ -91,12 +91,15 @@ function EmployeeForm() {
                     ></InputText>
 
                     <label htmlFor="date-of-birth">Date of Birth</label>
-                    <Calendar id="date-of-birth" ref={dateOfBirth}></Calendar>
+                    <Calendar
+                        inputId="date-of-birth"
+                        ref={dateOfBirth}
+                    ></Calendar>
 
                     <label htmlFor="start-date">Start Date</label>
                     <Calendar
                         required
-                        id="start-date"
+                        inputId="start-date"
                         ref={startDate}
                     ></Calendar>
 
@@ -131,7 +134,7 @@ function EmployeeForm() {
 
                 <Button
                     className="p-button-raised p-button-success"
-                    label="Save"
+                    label="SAVE EMPLOYEE"
                     style={{
                         background: 'white',
                         color: 'rgb(34 197 94)',

@@ -422,10 +422,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@leoncik/p14-hrnet-plugin@0.0.9":
-  version "0.0.9"
-  resolved "https://npm.pkg.github.com/download/@leoncik/p14-hrnet-plugin/0.0.9/87964e662b89a4f0713607bc3e4172d76f862771#87964e662b89a4f0713607bc3e4172d76f862771"
-  integrity sha512-N8KvARacmiGQhbVebwgfLU0uv+H50UUBcCji/vPyHmjbKy37m6TPxc/dZM2cgpq6ES+p7tuRQb4YslLZnI2rvg==
+"@leoncik/p14-hrnet-plugin@0.0.10":
+  version "0.0.10"
+  resolved "https://npm.pkg.github.com/download/@leoncik/p14-hrnet-plugin/0.0.10/1233d4fe4dbe4bd4d5f7eea093e57ac808fce648#1233d4fe4dbe4bd4d5f7eea093e57ac808fce648"
+  integrity sha512-XSDWLXxdnK1qTuIaPpXFyax1dmRRVBhKI/1SdZJFZczm74p7PUH/KEovZB+Z0qxq2gvNGxbPYPFIgMZcuig1Hw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
