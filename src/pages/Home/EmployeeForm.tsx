@@ -69,67 +69,77 @@ function EmployeeForm() {
     return (
         <div className="form-container flex flex-col items-center pb-4 justify-center bg-green-600">
             <form
-                className="flex flex-col justify-center"
+                className="flex flex-col justify-center md:w-11/12 lg:w-7/12"
                 onSubmit={(e) => {
                     setIsDialogVisible(true);
                     handleSaveEmployee(e);
                 }}
             >
-                <div className="form-container mb-3 mt-3 bg-white p-5 rounded-md">
-                    <label htmlFor="firstName">First Name</label>
-                    <InputText
-                        required
-                        ref={firstName}
-                        id="firstName"
-                    ></InputText>
+                <div className="form-container gap-12 mb-3 mt-3 bg-white p-5 rounded-md flex flex-col md:flex-row md:justify-around">
+                    <div className="employee-primary-info">
+                        <label htmlFor="firstName">
+                            First Name <span className="text-red-600">*</span>
+                        </label>
+                        <InputText
+                            required
+                            ref={firstName}
+                            id="firstName"
+                        ></InputText>
 
-                    <label htmlFor="lastName">Last Name</label>
-                    <InputText
-                        required
-                        id="lastName"
-                        ref={lastName}
-                    ></InputText>
+                        <label htmlFor="lastName">
+                            Last Name <span className="text-red-600">*</span>
+                        </label>
+                        <InputText
+                            required
+                            id="lastName"
+                            ref={lastName}
+                        ></InputText>
 
-                    <label htmlFor="date-of-birth">Date of Birth</label>
-                    <Calendar
-                        inputId="date-of-birth"
-                        ref={dateOfBirth}
-                    ></Calendar>
+                        <label htmlFor="date-of-birth">Date of Birth</label>
+                        <Calendar
+                            inputId="date-of-birth"
+                            ref={dateOfBirth}
+                        ></Calendar>
 
-                    <label htmlFor="start-date">Start Date</label>
-                    <Calendar
-                        required
-                        inputId="start-date"
-                        ref={startDate}
-                    ></Calendar>
+                        <label htmlFor="start-date">
+                            Start Date <span className="text-red-600">*</span>
+                        </label>
+                        <Calendar
+                            required
+                            inputId="start-date"
+                            ref={startDate}
+                        ></Calendar>
 
-                    <Fieldset className="mt-5" legend="Address">
-                        <label htmlFor="street">Street</label>
-                        <InputText id="street" ref={street}></InputText>
-
-                        <label htmlFor="city">City</label>
-                        <InputText id="city" ref={city}></InputText>
-
-                        <label htmlFor="state">State</label>
+                        <label htmlFor="department">Department</label>
                         <SelectMenu
                             mainColor="rgb(34 197 94)"
-                            options={getStateNames(states)}
-                            optionsValues={getStatesAbbreviations(states)}
-                            id={'state'}
-                            inputRef={state}
+                            options={departments}
+                            id={'department'}
+                            inputRef={department}
                         />
+                    </div>
 
-                        <label htmlFor="zip-code">Zip Code</label>
-                        <InputNumber inputId="zip-code" ref={zipCode} />
-                    </Fieldset>
+                    <div className="employee-secondary-info">
+                        <Fieldset className="mt-5" legend="Address">
+                            <label htmlFor="city">City</label>
+                            <InputText id="city" ref={city}></InputText>
 
-                    <label htmlFor="department">Department</label>
-                    <SelectMenu
-                        mainColor="rgb(34 197 94)"
-                        options={departments}
-                        id={'department'}
-                        inputRef={department}
-                    />
+                            <label htmlFor="street">Street</label>
+                            <InputText id="street" ref={street}></InputText>
+
+                            <label htmlFor="state">State</label>
+                            <SelectMenu
+                                mainColor="rgb(34 197 94)"
+                                options={getStateNames(states)}
+                                optionsValues={getStatesAbbreviations(states)}
+                                id={'state'}
+                                inputRef={state}
+                            />
+
+                            <label htmlFor="zip-code">Zip Code</label>
+                            <InputNumber inputId="zip-code" ref={zipCode} />
+                        </Fieldset>
+                    </div>
                 </div>
 
                 <Button

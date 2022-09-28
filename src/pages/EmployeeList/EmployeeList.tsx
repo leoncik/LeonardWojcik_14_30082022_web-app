@@ -132,12 +132,13 @@ function EmployeeList() {
         return (
             <div className="flex justify-between items-center">
                 <h1 className="m-0">Current Employees</h1>
-                <span className="p-input-icon-left">
+                <span className="p-input-icon-left w-min">
                     <i className="pi pi-search" />
                     <InputText
                         value={globalFilterValue}
                         onChange={onGlobalFilterChange}
                         placeholder="Keyword Search"
+                        className="w-40 sm:w-80"
                     />
                 </span>
             </div>
@@ -153,58 +154,67 @@ function EmployeeList() {
         >
             <Toast ref={toast} position="bottom-right" />
 
-            <DataTable
-                value={employees}
-                header={header}
-                emptyMessage="No employee found."
-                paginator
-                rows={5}
-                rowsPerPageOptions={[5, 10, 25, 50, 100]}
-                paginatorTemplate={navigationTemplate}
-                filters={filters}
-                selection={selectedEmployees}
-                onSelectionChange={(e) => setSelectedEmployees(e.value)}
-                responsiveLayout="scroll"
-                style={{ width: '90%' }}
-            >
-                <Column
-                    selectionMode="multiple"
-                    headerStyle={{ width: '3em' }}
-                ></Column>
-                <Column
-                    field="firstName"
-                    header="First Name"
-                    sortable={true}
-                ></Column>
-                <Column
-                    field="lastName"
-                    header="Last Name"
-                    sortable={true}
-                ></Column>
-                <Column
-                    field="startDate"
-                    header="Start Date"
-                    sortable={true}
-                ></Column>
-                <Column
-                    field="department"
-                    header="Department"
-                    sortable={true}
-                ></Column>
-                <Column
-                    field="dateOfBirth"
-                    header="Date of Birth"
-                    sortable={true}
-                ></Column>
-                <Column field="street" header="Street" sortable={true}></Column>
-                <Column field="city" header="City" sortable={true}></Column>
-                <Column field="state" header="State" sortable={true}></Column>
-                <Column
-                    field="zipCode"
-                    header="Zip Code"
-                    sortable={true}
-                ></Column>
-            </DataTable>
+            <div className="employee-table bg-white p-4 rounded-md w-11/12">
+                <DataTable
+                    value={employees}
+                    header={header}
+                    emptyMessage="No employee found."
+                    paginator
+                    rows={5}
+                    rowsPerPageOptions={[5, 10, 25, 50, 100]}
+                    paginatorTemplate={navigationTemplate}
+                    filters={filters}
+                    selection={selectedEmployees}
+                    onSelectionChange={(e) => setSelectedEmployees(e.value)}
+                    responsiveLayout="scroll"
+                >
+                    <Column
+                        selectionMode="multiple"
+                        headerStyle={{ width: '3em' }}
+                    ></Column>
+                    <Column
+                        field="firstName"
+                        header="First Name"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="lastName"
+                        header="Last Name"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="startDate"
+                        header="Start Date"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="department"
+                        header="Department"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="dateOfBirth"
+                        header="Date of Birth"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="street"
+                        header="Street"
+                        sortable={true}
+                    ></Column>
+                    <Column field="city" header="City" sortable={true}></Column>
+                    <Column
+                        field="state"
+                        header="State"
+                        sortable={true}
+                    ></Column>
+                    <Column
+                        field="zipCode"
+                        header="Zip Code"
+                        sortable={true}
+                    ></Column>
+                </DataTable>
+            </div>
 
             <Button
                 className="p-button-danger"
