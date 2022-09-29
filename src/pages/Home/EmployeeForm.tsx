@@ -84,6 +84,7 @@ function EmployeeForm() {
                             required
                             ref={firstName}
                             id="firstName"
+                            className="first-name"
                         ></InputText>
 
                         <label htmlFor="lastName">
@@ -92,6 +93,7 @@ function EmployeeForm() {
                         <InputText
                             required
                             id="lastName"
+                            className="last-name"
                             ref={lastName}
                         ></InputText>
 
@@ -107,6 +109,7 @@ function EmployeeForm() {
                         <Calendar
                             required
                             inputId="start-date"
+                            className="start-date"
                             ref={startDate}
                         ></Calendar>
 
