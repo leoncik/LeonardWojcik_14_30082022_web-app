@@ -67,5 +67,5 @@ Here are all the reports :
 
 |                | Home page | Employee page |
 | -------------- | --------- | ------------- |
-| JQuery version | Report    | Report        |
-| React version  | Report    | Report        |
+| JQuery version | [JQuery-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683855/JQuery-Home.pdf)    | [JQuery-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683849/JQuery-Employee.pdf)        |
+| React version  | [React-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683858/React-Home.pdf)    | [React-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683857/React-Employee.pdf)        |
