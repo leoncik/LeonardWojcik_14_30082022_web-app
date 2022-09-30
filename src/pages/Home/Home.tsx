@@ -2,8 +2,10 @@ import EmployeeForm from './EmployeeForm';
 
 function Home() {
     return (
-        <div className="home-page">
-            <EmployeeForm />
+        <div className="page-wrapper md:flex md:flex-col md:justify-center md:items-center md:h-screen">
+            <div className="home-page md:w-full">
+                <EmployeeForm />
+            </div>
         </div>
     );
 }
