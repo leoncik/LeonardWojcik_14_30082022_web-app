@@ -1,7 +1,7 @@
 import { mockedEmployees } from '../../src/__mocks__/mockedEmployees';
 
-describe('empty spec', () => {
-    it('passes', () => {
+describe('Testing employee creation', () => {
+    it('Should create an employee if required fields are filled', () => {
         cy.visit('/');
 
         // Fill in the required fields of the form
@@ -36,8 +36,8 @@ describe('empty spec', () => {
         // Going to employee page and checking that the employee has been created
         cy.contains('Employee list').click();
         cy.url().should('include', '/employee-list');
-        cy.contains(mockedEmployees[0].firstName);
-        cy.contains(mockedEmployees[0].lastName);
-        cy.contains(formattedToday);
+        cy.contains(mockedEmployees[0].firstName).should('exist');
+        cy.contains(mockedEmployees[0].lastName).should('exist');
+        cy.contains(formattedToday).should('exist');
     });
 });
