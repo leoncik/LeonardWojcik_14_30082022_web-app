@@ -10,6 +10,8 @@ Project carried out as part of the Front-End Web Development Career Path of Open
 -   [How to use](#how-to-use)
     -   [Launch and edit the project](#launch-and-edit-the-project)
     -   [Use the tests](#use-the-tests)
+        -   [Unit tests](#unit-tests)
+        -   [E2E tests](#e2e-tests)
 -   [Performance report](#performance-report)
 
 ## Description
@@ -54,9 +56,25 @@ yarn install
 
 ### Use the tests
 
+#### Unit tests
+
+You can find the unit tests in : `src/__tests__/`.
+
 To run and watch the tests in the console, run : `yarn test`.
 
 To get a coverage report while running the tests, run : `yarn coverage`. If you want to visualize the coverage report, you can run a live server (if you are using VSCode, I recommend using [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)) and use this url : http://127.0.0.1:5500/coverage/
+
+#### E2E tests
+
+You can find the E2E tests un : `cypress/e2e/`.
+
+To start the tests :
+
+1. Make sure that the dev server is running (use the command `yarn dev`).
+2. Run : `yarn cypress:open`.
+3. A popup should appear. Choose "E2E Testing".
+4. Choose a Browser from the list.
+5. Now you can run a test by clicking on a file from the "Specs" tab.
 
 ## Performance report
 
@@ -65,7 +83,7 @@ The report shows that the new website is approximately 8% more performant than t
 
 Here are all the reports :
 
-|                | Home page | Employee page |
-| -------------- | --------- | ------------- |
-| JQuery version | [JQuery-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683855/JQuery-Home.pdf)    | [JQuery-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683849/JQuery-Employee.pdf)        |
-| React version  | [React-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683858/React-Home.pdf)    | [React-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683857/React-Employee.pdf)        |
+|                | Home page                                                                                                     | Employee page                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| JQuery version | [JQuery-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683855/JQuery-Home.pdf) | [JQuery-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683849/JQuery-Employee.pdf) |
+| React version  | [React-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683858/React-Home.pdf)   | [React-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683857/React-Employee.pdf)   |
