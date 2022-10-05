@@ -83,7 +83,7 @@ The report shows that the new website is more performant than the old one and al
 
 Here are all the reports :
 
-|                | Home page                                                                                                     | Employee page                                                                                                         |
-| -------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| JQuery version | [JQuery-Home-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718178/JQuery-Home-PDF.pdf) | [JQuery-Employee-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718182/JQuery-Employee-PDF.pdf) |
-| React version  | [React-Home-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718184/React-Home-PDF.pdf)   | [React-Employee-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718187/React-Employee-PDF.pdf)   |
+|                | Home page                                                                                                                 | Employee page                                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| JQuery version | [JQuery-Home-PDF.pdf](./perf-reports/JQuery-Home-PDF.pdf) / [JQuery-Home-JSON.json](./perf-reports/JQuery-Home-JSON.json) | [JQuery-Employee-PDF.pdf](./perf-reports/JQuery-Employee-PDF.pdf) / [JQuery-Employee-JSON.json](./perf-reports/JQuery-Employee-JSON.json) |
+| React version  | [React-Home-PDF.pdf](./perf-reports/React-Home-PDF.pdf) / [React-Home-JSON.json](./perf-reports/React-Home-JSON.json)     | [React-Employee-PDF.pdf](./perf-reports/React-Employee-PDF.pdf) / [React-Employee-JSON.json](./perf-reports/React-Employee-JSON.json)     |
