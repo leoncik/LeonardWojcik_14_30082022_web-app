@@ -79,11 +79,11 @@ To start the tests :
 ## Performance report
 
 I have used [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) in order to compare the performances of the old website and the new one.  
-The report shows that the new website is approximately 8% more performant than the old one and also more secure (the _Best practices_ category is now at 100%).
+The report shows that the new website is more performant than the old one and also more secure (the _Best practices_ category is now at 100%).
 
 Here are all the reports :
 
 |                | Home page                                                                                                     | Employee page                                                                                                         |
 | -------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| JQuery version | [JQuery-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683855/JQuery-Home.pdf) | [JQuery-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683849/JQuery-Employee.pdf) |
-| React version  | [React-Home.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683858/React-Home.pdf)   | [React-Employee.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9683857/React-Employee.pdf)   |
+| JQuery version | [JQuery-Home-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718178/JQuery-Home-PDF.pdf) | [JQuery-Employee-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718182/JQuery-Employee-PDF.pdf) |
+| React version  | [React-Home-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718184/React-Home-PDF.pdf)   | [React-Employee-PDF.pdf](https://github.com/leoncik/LeonardWojcik_14_30082022_web-app/files/9718187/React-Employee-PDF.pdf)   |
