@@ -405,10 +405,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@leoncik/p14-hrnet-plugin@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@leoncik/p14-hrnet-plugin/-/p14-hrnet-plugin-1.0.0.tgz"
-  integrity sha512-jyRBV46qaUeGs7GtplYTBYXfBeKG7C4jXEt0+lly2mHUNBw+Mju5cKN8xPi/NTC9uan3fOkbDWWf7w/Azv7Zxg==
+"@leoncik/p14-hrnet-plugin@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@leoncik/p14-hrnet-plugin/-/p14-hrnet-plugin-1.0.1.tgz#9ca5332e173ebb613078569cf35958374c72cd43"
+  integrity sha512-tZB0SrG4DeyvNIYVQVmY6C8bO3Iqi00EEwkwf/OmZMBpQKfwnsOXgmArUap1kQ8nD/V36ILy2GtM04DbSIWV0g==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

@@ -14,7 +14,7 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "@leoncik/p14-hrnet-plugin": "^1.0.0",
+    "@leoncik/p14-hrnet-plugin": "^1.0.1",
     "primeicons": "^5.0.0",
     "primereact": "^8.5.0",
     "react": "^18.2.0",
