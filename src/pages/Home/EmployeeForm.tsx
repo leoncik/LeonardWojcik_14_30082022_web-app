@@ -35,17 +35,33 @@ function EmployeeForm() {
     const [isDialogVisible, setIsDialogVisible] = useState(false);
     const [hoverStyle, setHoverStyle] = useState<boolean>(false);
 
-    const getStateNames = (statesList: Array<IStates>) => {
+    /**
+     * Creates an array with of all states names from data.
+     * @param {Array<IStates>} statesList data file.
+     * @returns {string[]}
+     */
+    const getStateNames = (statesList: Array<IStates>): Array<string> => {
         const statesNames: Array<string> = [];
         statesList.map((state) => statesNames.push(state.name));
         return statesNames;
     };
-    const getStatesAbbreviations = (statesList: Array<IStates>) => {
+    /**
+     * Creates an array with of all states abbreviation from data.
+     * @param {Array<IStates>} statesList data file.
+     * @returns {string[]}
+     */
+    const getStatesAbbreviations = (
+        statesList: Array<IStates>
+    ): Array<string> => {
         const statesAbbreviations: Array<string> = [];
         statesList.map((state) => statesAbbreviations.push(state.abbreviation));
         return statesAbbreviations;
     };
 
+    /**
+     * Saves employee in localStorage on submit.
+     * @param {React.FormEvent<HTMLFormElement>} e
+     */
     const handleSaveEmployee = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const employees =

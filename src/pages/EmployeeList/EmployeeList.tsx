@@ -33,6 +33,10 @@ function EmployeeList() {
     const [isDeleteButtonActive, setIsDeleteButtonActive] = useState(false);
 
     /* eslint-disable @typescript-eslint/no-explicit-any */
+    /**
+     * Handle filter search feature when user is writing in input field.
+     * @param e
+     */
     const onGlobalFilterChange = (e: any) => {
         const value = e.target.value;
         const _filters = { ...filters };
@@ -41,7 +45,11 @@ function EmployeeList() {
         setFilters(_filters);
         setGlobalFilterValue(value);
     };
-    // Navigation template
+    /**
+     * Navigation template
+     * Renders the bottom part of the table used for navigation
+     * and showing number of entries.
+     */
     const navigationTemplate: any = {
         layout: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown',
         RowsPerPageDropdown: (options: any) => {
@@ -101,6 +109,9 @@ function EmployeeList() {
 
     // DELETING EMPLOYEE
     const [isDialogVisible, setIsDialogVisible] = useState(false);
+    /**
+     * Delete employee stored in localStorage according to selection
+     */
     const handleDeleteEmployees = () => {
         selectedEmployees?.map((selectedEmployee: IEmployees) => {
             employees?.map((employee: IEmployees, index: number) => {
@@ -122,6 +133,7 @@ function EmployeeList() {
         });
     };
 
+    // Change state of delete button according to current selection.
     useEffect(() => {
         selectedEmployees !== null && selectedEmployees.length > 0
             ? setIsDeleteButtonActive(true)

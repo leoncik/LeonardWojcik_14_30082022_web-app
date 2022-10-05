@@ -66,7 +66,7 @@ To get a coverage report while running the tests, run : `yarn coverage`. If you 
 
 #### E2E tests
 
-You can find the E2E tests un : `cypress/e2e/`.
+You can find the E2E tests in : `cypress/e2e/`.
 
 To start the tests :
 
