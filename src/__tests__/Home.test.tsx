@@ -2,6 +2,10 @@ import { screen, render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import Home from '../pages/Home/Home';
 
+// Use 'resize-observer-polyfill' to fix 'ResizeObserver is not defined'.
+// Note : the ResizeObserver API is used in the custom select menu.
+global.ResizeObserver = require('resize-observer-polyfill');
+
 describe('Testing render of home page', () => {
     it('should display the form to create an employee', () => {
         render(<Home />);
