@@ -162,7 +162,7 @@ function EmployeeList() {
     return (
         <div
             id="employee-div"
-            className="flex flex-col items-center justify-center bg-green-600 h-screen"
+            className="flex flex-col items-center justify-center bg-green-600 mt-3 mb-3"
         >
             <Toast ref={toast} position="bottom-right" />
 
