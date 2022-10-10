@@ -1,3 +1,7 @@
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { employeesActions } from '../../features/slices/employeesSlice';
+
 // React Hooks
 import { useEffect, useRef, useState } from 'react';
 
@@ -13,16 +17,15 @@ import { Dropdown } from 'primereact/dropdown';
 
 // Interfaces
 import { IEmployees } from '../../__mocks__/mockedEmployees';
+import { IRootState } from '../../store';
 
 // Mocked data
 // import { mockedEmployees } from '../../__mocks__/mockedEmployees';
 
 function EmployeeList() {
-    // TABLE
-    const savedEmployees =
-        JSON.parse(localStorage.getItem('employees') || '[]') || [];
-    // const employees = [...savedEmployees, ...mockedEmployees];
-    const employees = savedEmployees;
+    // Redux
+    const dispatch = useDispatch();
+    const employees = useSelector((state: IRootState) => state.employee);
 
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -116,10 +119,11 @@ function EmployeeList() {
         selectedEmployees?.map((selectedEmployee: IEmployees) => {
             employees?.map((employee: IEmployees, index: number) => {
                 if (selectedEmployee.id === employee.id) {
-                    employees.splice(index, 1);
+                    dispatch(employeesActions.deleteEmployee(index));
+                    // employees.splice(index, 1);
                 }
             });
-            localStorage.setItem('employees', JSON.stringify(employees));
+            // localStorage.setItem('employees', JSON.stringify(employees));
             toast?.current?.show({
                 severity: 'success',
                 summary:

@@ -2,9 +2,9 @@ export interface IEmployees {
     id: number;
     firstName: string;
     lastName: string;
-    startDate: string;
+    startDate: string | undefined;
     department: string;
-    dateOfBirth: string;
+    dateOfBirth: string | undefined;
     street: string;
     city: string;
     state: string;

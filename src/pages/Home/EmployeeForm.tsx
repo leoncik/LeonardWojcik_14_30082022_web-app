@@ -1,3 +1,7 @@
+// Redux
+import { useDispatch } from 'react-redux';
+import { employeesActions } from '../../features/slices/employeesSlice';
+
 // React Hooks
 import { useState, useRef } from 'react';
 
@@ -20,6 +24,10 @@ import { departments } from '../../data/departments';
 import { IStates } from '../../data/states';
 
 function EmployeeForm() {
+    // Redux
+    const dispatch = useDispatch();
+
+    // Refs
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const firstName: any = useRef();
     const lastName: any = useRef();
@@ -64,8 +72,6 @@ function EmployeeForm() {
      */
     const handleSaveEmployee = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const employees =
-            JSON.parse(localStorage.getItem('employees') || '[]') || [];
         const employee = {
             id: Date.now(),
             firstName: firstName.current.value,
@@ -78,8 +84,9 @@ function EmployeeForm() {
             zipCode: zipCode.current.getInput().value,
             department: department.current.value,
         };
-        employees.push(employee);
-        localStorage.setItem('employees', JSON.stringify(employees));
+        dispatch(employeesActions.saveEmployee(employee));
+        // employees.push(employee);
+        // localStorage.setItem('employees', JSON.stringify(employees));
     };
 
     return (
