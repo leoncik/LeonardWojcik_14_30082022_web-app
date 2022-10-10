@@ -1,4 +1,5 @@
-import { screen, render } from '@testing-library/react';
+import { render } from './customRender';
+import { screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import EmployeeList from '../pages/EmployeeList/EmployeeList';
 
