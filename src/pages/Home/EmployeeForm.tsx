@@ -67,7 +67,7 @@ function EmployeeForm() {
     };
 
     /**
-     * Saves employee in localStorage on submit.
+     * Saves employee in store on submit.
      * @param {React.FormEvent<HTMLFormElement>} e
      */
     const handleSaveEmployee = (e: React.FormEvent<HTMLFormElement>) => {
@@ -85,8 +85,6 @@ function EmployeeForm() {
             department: department.current.value,
         };
         dispatch(employeesActions.saveEmployee(employee));
-        // employees.push(employee);
-        // localStorage.setItem('employees', JSON.stringify(employees));
     };
 
     return (

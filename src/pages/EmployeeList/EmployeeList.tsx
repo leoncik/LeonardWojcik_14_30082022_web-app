@@ -19,9 +19,6 @@ import { Dropdown } from 'primereact/dropdown';
 import { IEmployees } from '../../__mocks__/mockedEmployees';
 import { IRootState } from '../../store';
 
-// Mocked data
-// import { mockedEmployees } from '../../__mocks__/mockedEmployees';
-
 function EmployeeList() {
     // Redux
     const dispatch = useDispatch();
@@ -113,17 +110,11 @@ function EmployeeList() {
     // DELETING EMPLOYEE
     const [isDialogVisible, setIsDialogVisible] = useState(false);
     /**
-     * Delete employee stored in localStorage according to selection
+     * Delete employee stored in Redux store according to selection
      */
     const handleDeleteEmployees = () => {
-        selectedEmployees?.map((selectedEmployee: IEmployees) => {
-            employees?.map((employee: IEmployees, index: number) => {
-                if (selectedEmployee.id === employee.id) {
-                    dispatch(employeesActions.deleteEmployee(index));
-                    // employees.splice(index, 1);
-                }
-            });
-            // localStorage.setItem('employees', JSON.stringify(employees));
+        if (selectedEmployees) {
+            dispatch(employeesActions.deleteEmployee(selectedEmployees));
             toast?.current?.show({
                 severity: 'success',
                 summary:
@@ -132,9 +123,7 @@ function EmployeeList() {
                         : 'Selected employees deleted.',
                 life: 4000,
             });
-            // Reset selection in order to set delete button style to disabled.
-            setSelectedEmployees([]);
-        });
+        }
     };
 
     // Change state of delete button according to current selection.

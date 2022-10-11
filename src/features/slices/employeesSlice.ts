@@ -17,9 +17,15 @@ const employeesSlice = createSlice({
         },
         deleteEmployee: (
             draft: Array<IEmployees>,
-            action: PayloadAction<number>
+            action: PayloadAction<Array<IEmployees>>
         ) => {
-            draft.splice(action.payload, 1);
+            action.payload.map((selectedEmployee: IEmployees) => {
+                draft.map((employee: IEmployees, index: number) => {
+                    if (selectedEmployee.id === employee.id) {
+                        draft.splice(index, 1);
+                    }
+                });
+            });
         },
     },
 });
