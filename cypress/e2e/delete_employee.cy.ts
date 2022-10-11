@@ -1,18 +1,42 @@
 import { mockedEmployees } from '../../src/__mocks__/mockedEmployees';
 
 describe('Testing employee deletion', () => {
-    it('Should delete one employee in the data table', () => {
-        // Populate local storage with mocked employees
-        localStorage.setItem('employees', JSON.stringify(mockedEmployees));
-        cy.visit('/employee-list');
+    beforeEach(() => {
+        // Create employees
+        cy.visit('/');
+        mockedEmployees.map((employee) => {
+            // Fill form
+            cy.get('.first-name').then((elem) => {
+                elem.val(employee.firstName);
+            });
+            cy.get('.last-name').then((elem) => {
+                elem.val(employee.lastName);
+            });
+            cy.get('#start-date').then((elem) => {
+                elem.val(employee.startDate);
+            });
+            cy.get('#city').then((elem) => {
+                elem.val(employee.city);
+            });
+            // Submit the form
+            cy.contains('SAVE EMPLOYEE').click();
+            // Check modal and close It.
+            cy.get('.p-dialog-content').should('contain', 'Employee Created!');
+            cy.get('.p-dialog-header-icon').click();
+        });
 
+        // Going to employee page
+        cy.contains('Employee list').click();
+        cy.url().should('include', '/employee-list');
+    });
+
+    it('Should delete one employee in the data table', () => {
         // Check that employee are displayed
         mockedEmployees.map((employee) => {
             cy.contains(employee.firstName);
             cy.contains(employee.lastName);
-            cy.contains(employee.dateOfBirth);
-            cy.contains(employee.department);
-            cy.contains(employee.street);
+            cy.contains(employee.startDate);
+            cy.contains(employee.city);
         });
 
         // Delete one employee
@@ -29,17 +53,12 @@ describe('Testing employee deletion', () => {
     });
 
     it('Should delete several employees in the data table', () => {
-        // Populate local storage with mocked employees
-        localStorage.setItem('employees', JSON.stringify(mockedEmployees));
-        cy.visit('/employee-list');
-
         // Check that employee are displayed
         mockedEmployees.map((employee) => {
             cy.contains(employee.firstName);
             cy.contains(employee.lastName);
-            cy.contains(employee.dateOfBirth);
-            cy.contains(employee.department);
-            cy.contains(employee.street);
+            cy.contains(employee.startDate);
+            cy.contains(employee.city);
         });
 
         // Delete two employees

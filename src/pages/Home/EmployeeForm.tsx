@@ -31,8 +31,8 @@ function EmployeeForm() {
     /* eslint-disable @typescript-eslint/no-explicit-any */
     const firstName: any = useRef();
     const lastName: any = useRef();
-    const dateOfBirth = useRef<Calendar>(null);
-    const startDate = useRef<Calendar>(null);
+    const dateOfBirth: any = useRef();
+    const startDate: any = useRef();
     const street: any = useRef();
     const city: any = useRef();
     const state: any = useRef();
@@ -76,8 +76,8 @@ function EmployeeForm() {
             id: Date.now(),
             firstName: firstName.current.value,
             lastName: lastName.current.value,
-            dateOfBirth: dateOfBirth?.current?.getInput().value,
-            startDate: startDate?.current?.getInput().value,
+            dateOfBirth: dateOfBirth.current.getInput().value,
+            startDate: startDate.current.getInput().value,
             street: street.current.value,
             city: city.current.value,
             state: state.current.value,
